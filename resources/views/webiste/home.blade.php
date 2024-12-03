@@ -1,57 +1,7 @@
 @extends('layout.Webistelayout')
 @section('title','Home')
 @section('content')
-<style>
-    /* Center the pagination buttons nicely */
-    .pagination {
-        display: flex;
-        justify-content: center;
-        list-style: none;
-        padding: 0;
-    }
 
-    .pagination .page-item {
-        margin: 0 5px;
-    }
-
-    .pagination .page-link {
-        background-color: #f8f9fa;
-        border-color: #ddd;
-        padding: 8px 15px;
-        font-size: 16px;
-        transition: background-color 0.3s, border-color 0.3s;
-    }
-
-    .pagination .page-link:hover {
-        background-color: #007bff;
-        border-color: #007bff;
-        color: white;
-    }
-
-    /* Active page button */
-    .pagination .page-item.active .page-link {
-        background-color: #007bff;
-        border-color: #007bff;
-        color: white;
-    }
-
-    /* Disable state for previous and next buttons */
-    .pagination .page-item.disabled .page-link {
-        color: #6c757d;
-        background-color: #f8f9fa;
-        border-color: #ddd;
-    }
-
-    /* Custom icon styles for previous and next buttons */
-    .pagination .page-item .page-link i {
-        font-size: 18px;
-    }
-
-    /* Add a little space around the pagination container */
-    .d-flex.justify-content-center.mt-4 {
-        margin-top: 20px;
-    }
-</style>
 
  <!-- Carousel Start -->
  <div class="container-fluid p-0 pb-5 mb-5">

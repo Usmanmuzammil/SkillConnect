@@ -43,9 +43,7 @@ Route::controller(WebController::class)->group(function () {
     Route::get('/about','getAbout');
     Route::get('/courses','getCourses');
     Route::get('/contact','getContact');
-    Route::get('/
-    
-    ','getAttendence');
+    Route::get('/attendence','getAttendence');
     Route::get('/event','getEvent');
 });
 
