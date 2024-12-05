@@ -21,7 +21,7 @@ class WebController extends Controller
         $about = About::first();
         $teachers = Teacher::paginate(8);
         $courses = course::all();  // Fetch all courses from the database
-        return view('layout.WebisteLayout',compact('banner','about','teachers','courses'));
+        return view('webiste.home',compact('banner','about','teachers','courses'));
     }
 
     /**

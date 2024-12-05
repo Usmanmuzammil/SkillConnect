@@ -442,11 +442,11 @@
                                 <i class="ri-bookmark-2-fill"></i></i> <span>Banner</span>
                             </a>
                         </li> --}}
-                        {{-- <li class="nav-item "  style="margin-top: -10px;">
+                        <li class="nav-item "  style="margin-top: -10px;">
                             <a class="nav-link " href="{{ url('/admin/course/') }}">
                                 <i class=" ri-file-paper-fill"></i></i> <span>Course</span>
                             </a>
-                        </li> --}}
+                        </li>
 
                         {{-- <li class="nav-item "  style="margin-top: -10px;">
                             <a class="nav-link " href="{{ url('/admin/user/') }}">
@@ -460,17 +460,17 @@
                             </a>
                         </li> --}}
 
-                        {{-- <li class="nav-item "  style="margin-top: -10px;">
-                            <a class="nav-link " href="{{url('/admin/teacher')}}">
-                                <i class=" ri-user-3-fill"></i></i> <span>Faculty</span>
-                            </a>
-                        </li> --}}
-
                         <li class="nav-item "  style="margin-top: -10px;">
+                            <a class="nav-link " href="{{url('/admin/teacher')}}">
+                                <i class=" ri-user-3-fill"></i></i> <span>Instructors</span>
+                            </a>
+                        </li>
+
+                        {{-- <li class="nav-item "  style="margin-top: -10px;">
                             <a class="nav-link " href="{{url('/admin/blog')}}">
                                 <i class=" ri-user-3-fill"></i></i> <span>Courses</span>
                             </a>
-                        </li>
+                        </li> --}}
 
                         {{-- <li class="nav-item "  style="margin-top: -10px;">
                             <a class="nav-link " href="{{url('/admin/attendence')}}">

@@ -56,27 +56,24 @@ class CourseController extends Controller
         try {
             $data = Validator::make($request->all(),[
                 'course_title' => 'required',
-                'pdf' => 'required',
-                'pdf_image'=>'required',
+                'image' => 'required',
+                'link'=>'required',
+                'price'=>'required',
+                'duration'=>'required',
             ]);
 
-            if ($request->hasFile('pdf')) {
-                $pdf = $request->file('pdf');
-                $pdfName = time().'.'.$pdf->getClientOriginalExtension();
-                $path = public_path('/upload_pdfs');
-                $pdf->move($path, $pdfName);
-            }
-            
-            if ($request->hasFile('pdf_image')) {
-                $pdf_image = $request->file('pdf_image');
-                $pdf_imageName = time().'.'.$pdf_image->getClientOriginalExtension();
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $imageName = time().'.'.$image->getClientOriginalExtension();
                 $path = public_path('/upload_images');
-                $pdf_image->move($path, $pdf_imageName);
+                $image->move($path, $imageName);
             }
             course::create([
                 'course_title' => $request->course_title,
-                'pdf' => '/upload_pdfs/'.$pdfName,
-                'pdf_image' => '/upload_images/'.$pdf_imageName,
+                'link' => $request->link,
+                'price' => $request->price,
+                'duration' => $request->duration,
+                'image' => '/upload_images/'.$imageName,
             ]);
 
             return back()->with(['success' => 'Course Added Successfully!']);

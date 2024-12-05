@@ -10,8 +10,10 @@ class course extends Model
 
     protected $fillable = [
         'course_title',
-        'pdf',
-        'pdf_image',
-        'download_count',
+        'link',
+        'image',
+        'price',
+        'duration',
+        'whatsapp_num',
     ];
 }

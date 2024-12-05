@@ -3,413 +3,417 @@
 @section('content')
 
 
- <!-- Carousel Start -->
- <div class="container-fluid p-0 pb-5 mb-5">
-    <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <!-- Dynamically generate carousel indicators -->
-            @foreach ($banner as $index => $bannerItem)
-                <li data-target="#header-carousel" data-slide-to="{{ $index }}" class="{{ $index === 0 ? 'active' : '' }}"></li>
-            @endforeach
-        </ol>
-        <div class="carousel-inner">
-            <!-- Dynamically generate carousel items -->
-            @foreach ($banner as $index => $bannerItem)
-                <div class="carousel-item {{ $index === 0 ? 'active' : '' }}" style="min-height: 300px;">
-                    <img class="position-relative w-100" src="{{ $bannerItem->image }}" style="height: 500px; object-fit: cover;">
-                    <div class="carousel-caption d-flex align-items-center justify-content-center">
-                        <div class="p-5" style="width: 100%; max-width: 900px;">
-                            <h1 class="text-primary text-uppercase mb-md-3">{{ $bannerItem->tagline }}</h1>
-                            <h5 class="display-4 text-white ">{{ $bannerItem->description }}</h5>
-                            <a href="" class="btn btn-primary py-md-2 px-md-4 font-weight-semi-bold mt-2">Learn More</a>
+
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0 mb-5">
+        <div class="owl-carousel header-carousel position-relative">
+            <div class="owl-carousel-item position-relative">
+                <img class="img-fluid" src="{{asset('webisteassets/img/carousel-1.jpg')}}" alt="">
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-sm-10 col-lg-8">
+                                <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Best Online Courses</h5>
+                                <h1 class="display-3 text-white animated slideInDown">The Best Online Learning Platform</h1>
+                                <p class="fs-5 text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea sanctus eirmod elitr.</p>
+                                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
+                                <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            @endforeach
-        </div>
-    </div>
-</div>
-
-<!-- Carousel End -->
-
-
-<!-- About Start -->
-<div class="container-fluid py-5" style="margin-top: -100px;">
-    <div class="container py-5">
-        <div class="row align-items-center">
-            <div class="col-lg-5">
-                <img class="img-fluid rounded mb-4 mb-lg-0" src="{{ $about->image }}" alt="">
             </div>
-            <div class="col-lg-7">
-                <div class="text-left mb-4">
-                    <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">{{$about->title}}</h5>
-                    {{-- <h1>{{$about->title}}</h1> --}}
-                </div>
-                <p>{!! $about->description !!}</p>
-                {{-- <a href="" class="btn btn-primary py-md-2 px-md-4 font-weight-semi-bold mt-2">Learn More</a> --}}
-            </div>
-        </div>
-    </div>
-</div>
-<!-- About End -->
-
-
-<!-- Category Start -->
-{{-- <div class="container-fluid py-5">
-    <div class="container pt-5 pb-3">
-        <div class="text-center mb-5">
-            <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Subjects</h5>
-            <h1>Explore Top Subjects</h1>
-        </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="cat-item position-relative overflow-hidden rounded mb-2">
-                    <img class="img-fluid" src="{{ asset('webisteassets/img/cat-1.jpg') }}" alt="">
-                    <a class="cat-overlay text-white text-decoration-none" href="">
-                        <h4 class="text-white font-weight-medium">Web Design</h4>
-                        <span>100 Courses</span>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="cat-item position-relative overflow-hidden rounded mb-2">
-                    <img class="img-fluid" src="{{ asset('webisteassets/img/cat-2.jpg') }}" alt="">
-                    <a class="cat-overlay text-white text-decoration-none" href="">
-                        <h4 class="text-white font-weight-medium">Development</h4>
-                        <span>100 Courses</span>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="cat-item position-relative overflow-hidden rounded mb-2">
-                    <img class="img-fluid" src="{{ asset('webisteassets/img/cat-3.jpg') }}" alt="">
-                    <a class="cat-overlay text-white text-decoration-none" href="">
-                        <h4 class="text-white font-weight-medium">Game Design</h4>
-                        <span>100 Courses</span>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="cat-item position-relative overflow-hidden rounded mb-2">
-                    <img class="img-fluid" src="{{ asset('webisteassets/img/cat-4.jpg') }}" alt="">
-                    <a class="cat-overlay text-white text-decoration-none" href="">
-                        <h4 class="text-white font-weight-medium">Apps Design</h4>
-                        <span>100 Courses</span>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="cat-item position-relative overflow-hidden rounded mb-2">
-                    <img class="img-fluid" src="{{ asset('webisteassets/img/cat-6.jpg') }}" alt="">
-                    <a class="cat-overlay text-white text-decoration-none" href="">
-                        <h4 class="text-white font-weight-medium">Marketing</h4>
-                        <span>100 Courses</span>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="cat-item position-relative overflow-hidden rounded mb-2">
-                    <img class="img-fluid" src="{{ asset('webisteassets/img/cat-6.jpg') }}" alt="">
-                    <a class="cat-overlay text-white text-decoration-none" href="">
-                        <h4 class="text-white font-weight-medium">Research</h4>
-                        <span>100 Courses</span>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="cat-item position-relative overflow-hidden rounded mb-2">
-                    <img class="img-fluid" src="{{ asset('webisteassets/img/cat-7.jpg') }}" alt="">
-                    <a class="cat-overlay text-white text-decoration-none" href="">
-                        <h4 class="text-white font-weight-medium">Content Writing</h4>
-                        <span>100 Courses</span>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="cat-item position-relative overflow-hidden rounded mb-2">
-                    <img class="img-fluid" src="{{ asset('webisteassets/img/cat-7.jpg') }}" alt="">
-                    <a class="cat-overlay text-white text-decoration-none" href="">
-                        <h4 class="text-white font-weight-medium">SEO</h4>
-                        <span>100 Courses</span>
-                    </a>
+            <div class="owl-carousel-item position-relative">
+                <img class="img-fluid" src="{{asset('webisteassets/img/carousel-2.jpg')}}" alt="">
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-sm-10 col-lg-8">
+                                <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Best Online Courses</h5>
+                                <h1 class="display-3 text-white animated slideInDown">Get Educated Online From Your Home</h1>
+                                <p class="fs-5 text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea sanctus eirmod elitr.</p>
+                                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
+                                <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div> --}}
-<!-- Category Start -->
+    <!-- Carousel End -->
 
-<!-- Interesting Site Start -->
-<div class="container-fluid py-5">
-    <div class="container pt-5 pb-3">
-        <div class="text-center mb-5">
-            <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Our Dedication</h5>
-            <h1>See our dedicated video</h1>
-        </div>
-        <div class="row ">
-            <div class="col-lg-6">
-                <div class="blog-item position-relative overflow-hidden rounded mb-2">
-                    <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Fgovt.degree%2Fvideos%2F1066971594861231%2F&show_text=false&width=476&t=0" width="530" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+
+    <!-- Service Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
+                            <h5 class="mb-3">Skilled Instructors</h5>
+                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-globe text-primary mb-4"></i>
+                            <h5 class="mb-3">Online Classes</h5>
+                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-home text-primary mb-4"></i>
+                            <h5 class="mb-3">Home Projects</h5>
+                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-book-open text-primary mb-4"></i>
+                            <h5 class="mb-3">Book Library</h5>
+                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-6 ">
-                <div class="blog-item position-relative overflow-hidden rounded mb-2">
-                    <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Fgovt.degree%2Fvideos%2F1267225804420818%2F&show_text=false&width=476&t=0" width="476" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
-                </div>
-            </div>
-            {{-- <div class="col-lg-4 mb-4">
-                <div class="blog-item position-relative overflow-hidden rounded mb-2">
-                    <img class="img-fluid" src="{{ asset('webisteassets/img/blog-3.jpg') }}" alt="">
-                    <a class="blog-overlay text-decoration-none" href="">
-                        <h5 class="text-white mb-3">Lorem elitr magna stet eirmod labore amet labore clita at ut clita</h5>
-                        <p class="text-primary m-0">Jan 01, 2050</p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 mb-4">
-                <div class="blog-item position-relative overflow-hidden rounded mb-2">
-                    <img class="img-fluid" src="{{ asset('webisteassets/img/blog-3.jpg') }}" alt="">
-                    <a class="blog-overlay text-decoration-none" href="">
-                        <h5 class="text-white mb-3">Lorem elitr magna stet eirmod labore amet labore clita at ut clita</h5>
-                        <p class="text-primary m-0">Jan 01, 2050</p>
-                    </a>
-                </div>
-            </div> --}}
         </div>
     </div>
-</div>
-<!-- Blog End -->
+    <!-- Service End -->
+
+
+    <!-- About Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                    <div class="position-relative h-100">
+                        <img class="img-fluid position-absolute w-100 h-100" src="{{asset('webisteassets/img/about.jpg')}}" alt="" style="object-fit: cover;">
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
+                    <h1 class="mb-4">Welcome to eLEARNING</h1>
+                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                    <div class="row gy-2 gx-4 mb-4">
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Skilled Instructors</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Online Classes</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>International Certificate</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Skilled Instructors</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Online Classes</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>International Certificate</p>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+    <!-- Categories Start -->
+    <div class="container-xxl py-5 category">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Categories</h6>
+                <h1 class="mb-5">Courses Categories</h1>
+            </div>
+            <div class="row g-3">
+                <div class="col-lg-7 col-md-6">
+                    <div class="row g-3">
+                        <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
+                            <a class="position-relative d-block overflow-hidden" href="">
+                                <img class="img-fluid" src="{{asset('webisteassets/img/cat-1.jpg')}}" alt="">
+                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
+                                    <h5 class="m-0">Web Design</h5>
+                                    <small class="text-primary">49 Courses</small>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
+                            <a class="position-relative d-block overflow-hidden" href="">
+                                <img class="img-fluid" src="{{asset('webisteassets/img/cat-2.jpg')}}" alt="">
+                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
+                                    <h5 class="m-0">Graphic Design</h5>
+                                    <small class="text-primary">49 Courses</small>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
+                            <a class="position-relative d-block overflow-hidden" href="">
+                                <img class="img-fluid" src="{{asset('webisteassets/img/cat-3.jpg')}}" alt="">
+                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
+                                    <h5 class="m-0">Video Editing</h5>
+                                    <small class="text-primary">49 Courses</small>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
+                    <a class="position-relative d-block h-100 overflow-hidden" href="">
+                        <img class="img-fluid position-absolute w-100 h-100" src="{{asset('webisteassets/img/cat-4.jpg')}}" alt="" style="object-fit: cover;">
+                        <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin:  1px;">
+                            <h5 class="m-0">Online Marketing</h5>
+                            <small class="text-primary">49 Courses</small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Categories Start -->
+
 
     <!-- Courses Start -->
-    <div class="container-fluid py-5" style="margin-top: -40px;">
-        <div class="container py-5">
-            <div class="text-center mb-5">
-                <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Our Popular Courses</h5>
-                <h1>Download Now To Learn</h1>
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Freelancing</h6>
+                <h1 class="mb-5">Popular Freelancing Project</h1>
             </div>
-            <div class="row">
-                @foreach ($courses as $course)
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="rounded overflow-hidden mb-2">
-                        <img class="img-fluid" src="{{ $course->pdf_image }}" alt="" style="height: 330px;width:100%">
-                        <div class="bg-secondary p-4">
-                            <div class="d-flex justify-content-between mb-3">
-                                <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>{{$course->download_count}} Students</small>
-                                <small class="m-0"><i class="far fa-clock text-primary mr-2"></i>{{ $course->created_at->format('F j, Y') }}</small>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="course-item bg-light">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="{{asset('webisteassets/img/course-1.jpg')}}" alt="">
+                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
+                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
                             </div>
-                            <h5 class="h5">{{$course->course_title}}</h5>
-                            <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                     <!-- Button to download PDF -->
-                   
-                                     <a href="{{ asset( $course->pdf_file) }}" class="btn btn-primary py-md-2 px-md-4" download="{{ $course->course_title }}.pdf">
-                                        Download PDF
-                                    </a>
-                                    
-                                     
-
-                         <!-- Static Review Stars Section -->
-                    <div class="mt-2" style="font-size: 10px;">
-                        <div class="star-rating">
-                            <!-- Static 5-Star Rating (All filled stars) -->
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i> 
-                            <!-- Optional: Add rating text -->
-                            <span class="ml-2">5 / 5</span>
                         </div>
-                    </div>
-                                </div>
+                        <div class="text-center p-4 pb-0">
+                            <h3 class="mb-0">$149.00</h3>
+                            <div class="mb-3">
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small>(123)</small>
                             </div>
+                            <h5 class="mb-4">Web Design & Development Course for Beginners</h5>
+                        </div>
+                        <div class="d-flex border-top">
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>John Doe</small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>1.49 Hrs</small>
+                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students</small>
                         </div>
                     </div>
                 </div>
-                @endforeach
-              
-        
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="course-item bg-light">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="{{asset('webisteassets/img/course-2.jpg')}}" alt="">
+                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
+                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
+                            </div>
+                        </div>
+                        <div class="text-center p-4 pb-0">
+                            <h3 class="mb-0">$149.00</h3>
+                            <div class="mb-3">
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small>(123)</small>
+                            </div>
+                            <h5 class="mb-4">Web Design & Development Course for Beginners</h5>
+                        </div>
+                        <div class="d-flex border-top">
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>John Doe</small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>1.49 Hrs</small>
+                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="course-item bg-light">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="{{asset('webisteassets/img/course-3.jpg')}}" alt="">
+                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
+                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
+                            </div>
+                        </div>
+                        <div class="text-center p-4 pb-0">
+                            <h3 class="mb-0">$149.00</h3>
+                            <div class="mb-3">
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small>(123)</small>
+                            </div>
+                            <h5 class="mb-4">Web Design & Development Course for Beginners</h5>
+                        </div>
+                        <div class="d-flex border-top">
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>John Doe</small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>1.49 Hrs</small>
+                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students</small>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <!-- Courses End -->
 
 
-
-<!-- Registration Start -->
-<div class="container-fluid bg-registration py-5" style="margin: 90px 0;">
-    <div class="container py-5">
-        <div class="row align-items-center">
-            <div class="col-lg-7 mb-5 mb-lg-0">
-                <div class="mb-4">
-                    <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Success Path</h5>
-                    <h1 class="text-white">Your Pathway to a Successful Future – Connect with Us!</h1>
-                </div>
-                
-                <p class="text-white">
-                    At   <?php
-                    $setting = App\Models\Setting::where('key', 'name')->get()->first();
-                    if ($setting) {
-                        echo $setting->value;
-                    } else {
-                        echo 'Brand name not found';
-                    }
-                    ?>, we believe your journey is just as important as your destination. Whether you're seeking guidance, exploring opportunities, or looking for the right resources, we're here to help. By connecting with us, you’re stepping onto a path where every challenge is an opportunity, and every success is celebrated. Your future starts here—let us guide you every step of the way!
-                </p>
-                
-                <ul class="list-inline text-white m-0">
-                    <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Expert guidance from faculty and mentors</li>
-                    <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Opportunities to grow inside and outside the classroom</li>
-                    <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>A vibrant community that supports your success</li>
-                </ul>
-                
+    <!-- Team Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Instructors</h6>
+                <h1 class="mb-5">Expert Instructors</h1>
             </div>
-            <div class="col-lg-5">
-                <div class="card border-0">
-                    <div class="card-header bg-light text-center p-4">
-                        <h1 class="m-0">Connect Now!</h1>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item bg-light">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="{{asset('webisteassets/img/team-1.jpg')}}" alt="">
+                        </div>
+                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+                            <div class="bg-light d-flex justify-content-center pt-2 px-1">
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0">Instructor Name</h5>
+                            <small>Designation</small>
+                        </div>
                     </div>
-                    <div class="card-body rounded-bottom bg-primary p-5">
-                        <form action="{{url('/user/store')}}" method="post">
-                            @csrf
-                            <div class="form-group">
-                                <input type="text" name="name" class="form-control border-0 p-4" placeholder="Your name" required="required" />
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item bg-light">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="{{asset('webisteassets/img/team-2.jpg')}}" alt="">
+                        </div>
+                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+                            <div class="bg-light d-flex justify-content-center pt-2 px-1">
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
                             </div>
-                            <div class="form-group">
-                                <input type="email" name="email" class="form-control border-0 p-4" placeholder="Your email" required="required" />
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0">Instructor Name</h5>
+                            <small>Designation</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="team-item bg-light">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="{{asset('webisteassets/img/team-3.jpg')}}" alt="">
+                        </div>
+                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+                            <div class="bg-light d-flex justify-content-center pt-2 px-1">
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
                             </div>
-                            <div class="form-group">
-                                <input type="number" name="phone" class="form-control border-0 p-4" placeholder="Phone Number" required="required" />
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0">Instructor Name</h5>
+                            <small>Designation</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="team-item bg-light">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="{{asset('webisteassets/img/team-4.jpg')}}" alt="">
+                        </div>
+                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+                            <div class="bg-light d-flex justify-content-center pt-2 px-1">
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
                             </div>
-                            <div class="form-group ">
-                                <label for="consent">I agree to the terms and conditions and consent to the processing of my data.</label>
-                                <input type="checkbox" name="term_condition" value="200" id="consent" name="consent" required>
-                            </div>
-                           
-                            <div>
-                                {{-- <button class="btn btn-dark btn-block border-0 py-3" type="submit">Connected</button> --}}
-                                <input type="submit" value="Connected" class="btn btn-dark btn-block border-0 py-3">
-                            </div>
-                        </form>
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0">Instructor Name</h5>
+                            <small>Designation</small>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Registration End -->
+    <!-- Team End -->
 
 
-<!-- College Director Start -->
-<!-- About End -->
-
-
-<!-- teacher Start -->
-<div class="container-fluid py-5">
-    <div class="container pt-5 pb-3">
-        <div class="text-center mb-5">
-            <!-- Main Heading -->
-            <h1 class="font-weight-bold text-primary mb-4">Meet Our Best & Experienced Teachers</h1>
-            <p class="lead text-muted">Our team of expert educators is dedicated to your success. Discover the mentors who will guide you every step of the way!</p>
-        </div>
-        <div class="row">
-            @foreach ($teachers as $teacherItem)
-            <div class="col-md-6 col-lg-3 text-center team mb-4">
-                <div class="team-item rounded overflow-hidden mb-2">
-                    <div class="team-img position-relative">
-                        <img class="img-fluid" src="{{ $teacherItem->image }}" alt="{{ $teacherItem->name }}" style="width: 300px; height: 250px;">
-                        {{-- <div class="team-social">
-                            <a class="btn btn-outline-light btn-square mx-1" href="{{$teacherItem->twitter_link}}" target="_blank">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a class="btn btn-outline-light btn-square mx-1" href="{{$teacherItem->facebook_link}}" target="_blank">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a class="btn btn-outline-light btn-square mx-1" href="{{$teacherItem->youtube_link}}" target="_blank">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                        </div> --}}
+    <!-- Testimonial Start -->
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="text-center">
+                <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
+                <h1 class="mb-5">Our Students Say!</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel position-relative">
+                <div class="testimonial-item text-center">
+                    <img class="border rounded-circle p-2 mx-auto mb-3" src="{{asset('webisteassets/img/testimonial-1.jpg')}}" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Client Name</h5>
+                    <p>Profession</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
                     </div>
-                    <div class="bg-secondary p-4">
-                        <p class="m-0">{{ $teacherItem->desgination }}</p>
-                        <h5>{{ $teacherItem->name }}</h5>
-                        <a href="/admin/teacher/details/{{$teacherItem->id}}">See Details</a>
-
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="border rounded-circle p-2 mx-auto mb-3" src="{{asset('webisteassets/img/testimonial-2.jpg')}}" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Client Name</h5>
+                    <p>Profession</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="border rounded-circle p-2 mx-auto mb-3" src="{{asset('webisteassets/img/testimonial-3.jpg')}}" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Client Name</h5>
+                    <p>Profession</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="border rounded-circle p-2 mx-auto mb-3" src="{{asset('webisteassets/img/testimonial-4.jpg')}}" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Client Name</h5>
+                    <p>Profession</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
                     </div>
                 </div>
             </div>
-            @endforeach
         </div>
+    </div>
+    <!-- Testimonial End -->
         
-        <!-- Pagination Links -->
-        <div class="d-flex justify-content-center mt-4">
-            <!-- Custom Styled Pagination with Bootstrap 4 -->
-            {!! $teachers->links('pagination::bootstrap-4') !!}
-        </div>
-        
-    </div>
-</div>
-<!-- teacher Start -->
-
-<!-- Blog Start -->
-<div class="container-fluid py-5">
-    <div class="container pt-5 pb-3">
-        <div class="text-center mb-5">
-            <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Our Blog</h5>
-            <h1>Latest From Our Blog</h1>
-        </div>
-        <div class="row pb-3">
-            <div class="col-lg-4 mb-4">
-                <div class="blog-item position-relative overflow-hidden rounded mb-2">
-                    <img class="img-fluid" src="{{ asset('upload_image/WhatsApp Image 2024-11-13 at 11.16.28 AM.jpeg') }}" alt="">
-                    <a  href="">
-                        {{-- <h5 class="text-white mb-3"></h5> --}}
-                        <a class="blog-overlay text-decoration-none text-white" target="_blank" href="https://drive.google.com/file/d/1_GdwAINT6IRZ74i8tRxj1o16BY0_T1q0/view?usp=drivesdk">Introduction of Computer Science Department Topic</a>
-                        <p class="text-primary m-0">Sep 10, 2024</p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 mb-4">
-                <div class="blog-item position-relative overflow-hidden rounded mb-2">
-                    <img class="img-fluid" src="{{ asset('upload_image/WhatsApp Image 2024-11-13 at 11.22.53 AM.jpeg') }}" alt="">
-                    <a  href="">
-                        {{-- <h5 class="text-white mb-3"></h5> --}}
-                        <a class="blog-overlay text-decoration-none text-white" target="_blank" href="https://drive.google.com/file/d/1_GdwAINT6IRZ74i8tRxj1o16BY0_T1q0/view?usp=drivesdk">Introduction of Abacus Topic</a>
-                        <p class="text-primary m-0">Oct 17, 2024</p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 mb-4">
-                <div class="blog-item position-relative overflow-hidden rounded mb-2">
-                    <img class="img-fluid" src="{{ asset('upload_image/WhatsApp Image 2024-11-13 at 11.24.47 AM.jpeg') }}" alt="">
-                    <a  href="">
-                        {{-- <h5 class="text-white mb-3"></h5> --}}
-                        <a class="blog-overlay text-decoration-none text-white" target="_blank" href="https://drive.google.com/file/d/1_GdwAINT6IRZ74i8tRxj1o16BY0_T1q0/view?usp=drivesdk">Introduction of Artifical Intelligence Topic</a>
-                        <p class="text-primary m-0">Oct 17, 2024</p>
-                    </a>
-                </div>
-            </div>
-            {{-- <div class="col-lg-4 mb-4">
-                <div class="blog-item position-relative overflow-hidden rounded mb-2">
-                    <img class="img-fluid" src="{{ asset('webisteassets/img/blog-3.jpg') }}" alt="">
-                    <a class="blog-overlay text-decoration-none" href="">
-                        <h5 class="text-white mb-3">Lorem elitr magna stet eirmod labore amet labore clita at ut clita</h5>
-                        <p class="text-primary m-0">Jan 01, 2050</p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 mb-4">
-                <div class="blog-item position-relative overflow-hidden rounded mb-2">
-                    <img class="img-fluid" src="{{ asset('webisteassets/img/blog-3.jpg') }}" alt="">
-                    <a class="blog-overlay text-decoration-none" href="">
-                        <h5 class="text-white mb-3">Lorem elitr magna stet eirmod labore amet labore clita at ut clita</h5>
-                        <p class="text-primary m-0">Jan 01, 2050</p>
-                    </a>
-                </div>
-            </div> --}}
-        </div>
-    </div>
-</div>
-<!-- Blog End -->
 
 @endsection

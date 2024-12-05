@@ -36,7 +36,7 @@
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboards</a></li>
-                        <li class="breadcrumb-item active">Faculty</li>
+                        <li class="breadcrumb-item active">Instructors</li>
                     </ol>
                 </div>
 
@@ -49,11 +49,11 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-9">
-                        <h4>Faculty</h4>
+                        <h4>Instructors</h4>
                     </div>
                     <div class="col-3 text-end">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModaladd">
-                            Add Faculty!
+                            Add Instructors!
                         </button>
                     </div>
                 </div>
@@ -106,21 +106,13 @@
                         @enderror
                         <label for="desgination">Desgination</label>
                         {{-- <input type="text" name="desgination_id" required class="form-control" placeholder="Enter the desgination"> --}}
-                        <select name="desgination" id="" class="form-control" required>
-                            <option value="">Choose the Desgination</option>
-                            <option value="Principal ">Principal</option>
-                            <option value="Chief Director">Chief Director</option>
-                            <option value="Assistant Professor ">Assistant Professor</option>
-                            <option value="Associate Professor ">Associate Professor</option>
-                            <option value="Professor ">Professor</option>
-                            <option value="Librarian ">Librarian</option>
-                        </select>
+                        <input type="text" name="desgination" id="" class="form-control" placeholder="Enter the Desgination">
                         @error('desgination')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                         <label for="facebooklink">Facebook Link <span class="text-danger">(Optional)</span></label>
                         <input type="text" name="facebook_link" class="form-control" placeholder="https://www.facebook.com/profile.php?id=10">
-                        @error('facebooklink')
+                        @error('facebooklink') 
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                         <label for="youtubelink">Youtube Link<span class="text-danger">(Optional)</span></label>

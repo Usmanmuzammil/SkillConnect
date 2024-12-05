@@ -63,10 +63,12 @@
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Name</th>
-                            <th>PDF</th>
-                            <th>PDF Image</th>
-                            <th>Download Count</th>
+                            <th>Course Title</th>
+                            <th>Link</th>
+                            <th>Image</th>
+                            <th>Price</th>
+                            <th>Duration</th>
+                            <th>WhatsApp Number</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -92,16 +94,12 @@
                         @error('course_title')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
-                        <label for="pdf">PDF Image</label>
-                        <input type="file" name="pdf_image" required class="form-control">
-                        @error('pdf')
+                        <label for="">Image</label>
+                        <input type="file" name="image" required class="form-control">
+                        @error('image')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
-                        <label for="pdf">Upload Course PDF</label>
-                        <input type="file" name="pdf" required class="form-control">
-                        @error('pdf')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                   
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -121,12 +119,12 @@
                 columns: [
                     { data: 'id', name: 'id' },
                     { data: 'course_title', name: 'course_title' },
-                    { data: 'pdf', name: 'pdf' },
-                    { data: 'PDFImage', name: 'PDFImage' },
-                    { data: 'download_count', name: 'download_count', render: function(data, type, row) {
-                        // Prepend "static student" to the download_count value
-                        return data  + ' <span class="text-danger"> (Students)</span>' ;
-                    }},
+                    { data: 'link', name: 'link' },
+                    { data: 'image', name: 'image' },
+                    { data: 'price', name: 'price' },
+                    { data: 'duration', name: 'duration' },
+                    { data: 'whatsapp_num', name: 'whatsapp_num' },
+                  
                     { data: 'action', name: 'action', orderable: false, searchable: true }
                 ]
             });

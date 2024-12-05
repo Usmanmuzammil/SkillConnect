@@ -14,9 +14,12 @@ return new class extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
             $table->string('course_title');
-            $table->longText('pdf');
-            $table->longText('pdf_image');
-            $table->integer('download_count')->default(0);
+            // $table->longText('pdf');
+            $table->string('link');
+            $table->longText('image');
+            $table->string('price');
+            $table->string('duration');
+        $table->string('whatsapp_num')->nullable();
             $table->timestamps();
         });
     }
