@@ -62,14 +62,14 @@
                 <table class="table table-bordered" id="course_table">
                     <thead>
                         <tr>
-                            <th>Id</th>
-                            <th>Course Title</th>
-                            <th>Link</th>
-                            <th>Image</th>
-                            <th>Price</th>
-                            <th>Duration</th>
-                            <th>WhatsApp Number</th>
-                            <th>Action</th>
+                            <th scope="6">Id</th>
+                            <th scope="6">Course Title</th>
+                            <th scope="6">Link</th>
+                            <th scope="6">Image</th>
+                            <th scope="6">Price</th>
+                            <th scope="6">Duration (Hrs)</th>
+                            <th scope="6">WhatsApp Number</th>
+                            <th scope="6">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -92,6 +92,36 @@
                         <label for="course_title">Course Title</label>
                         <input type="text" name="course_title" required class="form-control" placeholder="Enter the course_title">
                         @error('course_title')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                        <label for="link">Link</label>
+                        <input type="text" name="link" required class="form-control" placeholder="Enter the link">
+                        @error('link')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                        <label for="price">Price</label>
+                        <input type="text" name="price" required class="form-control" placeholder="Enter the price">
+                        @error('price')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                        <div>
+                            <label for="hours">Hours</label>
+                            <input type="number" name="hours" min="0" class="form-control" placeholder="Hours" required>
+                        </div>
+                        <div>
+                            <label for="minutes">Minutes</label>
+                            <input type="number" name="minutes" min="0" max="59" class="form-control" placeholder="Minutes" required>
+                        </div>
+                        @error('hours')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                        @error('minutes')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                        
+                        <label for="whatsapp_num">WhatsApp Number</label>
+                        <input type="number" name="whatsapp_num" required class="form-control" placeholder="0300-0000000">
+                        @error('whatsapp_num')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                         <label for="">Image</label>
@@ -120,11 +150,10 @@
                     { data: 'id', name: 'id' },
                     { data: 'course_title', name: 'course_title' },
                     { data: 'link', name: 'link' },
-                    { data: 'image', name: 'image' },
+                    { data: 'Image', name: 'Image' },
                     { data: 'price', name: 'price' },
-                    { data: 'duration', name: 'duration' },
+                    { data: 'Duration', name: 'Duration' },
                     { data: 'whatsapp_num', name: 'whatsapp_num' },
-                  
                     { data: 'action', name: 'action', orderable: false, searchable: true }
                 ]
             });

@@ -20,25 +20,25 @@ class CourseController extends Controller
             $data = Course::select('*');
     
             return DataTables::of($data)
-                ->editColumn('pdf', function ($row) {
-                    // Return the link to the PDF
-                    return '<a href="'.$row->pdf.'" target="_blank">View PDF</a>';
+                ->editColumn('Image', function ($row) {
+                    return '<img class="img-thumbnail" alt="PDF Image" width="100" src="' . $row->image . '">';
                 })
-                ->editColumn('PDFImage', function ($row) {
-                    // return '<div class="image-container">
-                    //         <img src="'.$row->pdf_image.'" alt="Image" width="90px" >                
-                    // </div>';
-                    return '<img class="img-thumbnail" alt="200x200" width="100" src="'.$row->pdf_image.'">';
+                ->editColumn('Duration', function ($row) {
+                    // Convert duration from minutes to HH:MM format
+                    $hours = floor($row->duration / 60);
+                    $minutes = $row->duration % 60;
+                    return sprintf('%02d:%02d', $hours, $minutes); // Format as HH:MM
                 })
                 ->addColumn('action', function ($data) {
                     return view('admin.course.action_modal', compact('data'));
                 })
-                ->rawColumns(['pdf', 'action','PDFImage']) // Make sure 'pdf' is processed as HTML
+                ->rawColumns([ 'action', 'Image','Duration']) // Specify fields that contain HTML
                 ->make(true);
         }
     
         return view('admin.course.index');
     }
+    
     
     /**
      * Show the form for creating a new resource.
@@ -59,7 +59,9 @@ class CourseController extends Controller
                 'image' => 'required',
                 'link'=>'required',
                 'price'=>'required',
-                'duration'=>'required',
+                'hours' => 'required|integer|min:0',
+                'minutes' => 'required|integer|min:0|max:59',
+                'whatsapp_num' => 'required',
             ]);
 
             if ($request->hasFile('image')) {
@@ -68,11 +70,14 @@ class CourseController extends Controller
                 $path = public_path('/upload_images');
                 $image->move($path, $imageName);
             }
+            $totalMinutes = ($request->hours * 60) + $request->minutes;
+
             course::create([
                 'course_title' => $request->course_title,
                 'link' => $request->link,
                 'price' => $request->price,
-                'duration' => $request->duration,
+                'duration' => $totalMinutes,
+                'whatsapp_num' => $request->whatsapp_num,
                 'image' => '/upload_images/'.$imageName,
             ]);
 

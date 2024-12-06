@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\Mail\FacultyRegistration;
+use App\Models\Instructor;
 use App\Models\Teacher;
 use Exception;
 use Illuminate\Http\Request;
@@ -18,7 +19,7 @@ class TeacherController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Teacher::select('*');
+            $data = Instructor::select('*');
 
             return DataTables::of($data)
             ->addColumn('actions',function ($row) {
@@ -83,7 +84,7 @@ class TeacherController extends Controller
                 $path = public_path('/upload_image');
                 $image->move($path, $imageName);
             }
-            Teacher::create([
+            Instructor::create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'desgination' => $request->desgination,
@@ -96,7 +97,7 @@ class TeacherController extends Controller
 
             Mail::to($request->email)->send(new FacultyRegistration($request->name,$request->email,$request->desgination));
 
-            return back()->with(['success' => 'Faculty Added Successfully!']);
+            return back()->with(['success' => 'Instructor Added Successfully!']);
 
         } catch (Exception $ex) {
             return back()->with(['danger' => $ex->getMessage()]);
@@ -134,11 +135,11 @@ class TeacherController extends Controller
     {
         try {
             
-            $teacher = Teacher::findOrFail($id)->delete();
+            $teacher = Instructor::findOrFail($id)->delete();
             if ($teacher) {
-                return back()->with(['danger' => 'Teacher Deleted Successfully!']);
+                return back()->with(['danger' => 'Instructor Deleted Successfully!']);
             } else {
-                return back()->with(['success' => 'Teacher Id is not found!']);
+                return back()->with(['success' => 'Instructor Id is not found!']);
             }
         } catch (Exception $ex) {
             return back()->with(['danger' => $ex->getMessage()]);

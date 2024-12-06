@@ -79,7 +79,7 @@
                         <div class="card mt-4">
                             <div class="card-body p-4">
                                 <div class="text-center mt-2">
-                                    <h5 class="text-primary">Faculty Account Login</h5>
+                                    <h5 class="text-primary">Freelancer Account Login</h5>
                                 </div>
                                 <div class="p-2 mt-4">
                                     <form class="needs-validation"  action="{{ route('faculty.login') }}" method="POST">

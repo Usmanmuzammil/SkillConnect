@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('link');
             $table->longText('image');
             $table->string('price');
-            $table->string('duration');
+            $table->integer('duration');
         $table->string('whatsapp_num')->nullable();
             $table->timestamps();
         });

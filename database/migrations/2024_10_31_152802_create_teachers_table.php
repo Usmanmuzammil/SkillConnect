@@ -12,18 +12,20 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('teachers', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email');
-            $table->longText('password');
-            $table->string('desgination');
-            $table->string('image');
-            $table->longText('description');
-            $table->longText('facebook_link')->nullable();
-            $table->longText('youtube_link')->nullable();
-            $table->longText('twitter_link')->nullable();
-            $table->integer('status')->default(200); // 200 Active 403 Inactive
-            $table->timestamps();
+            $table->id(); // Auto-incrementing ID
+            $table->string('name', 100); // Freelancer's full name
+            $table->string('email')->unique(); // Unique email address
+            $table->string('password'); // Hashed password
+            $table->string('image')->nullable(); // Optional profile picture URL
+            $table->string('category')->nullable(); // Freelancer's category (web , app)
+            $table->string('country')->nullable(); // Freelancer's country
+            $table->string('year_of_experience')->nullable(); // Freelancer's country
+            $table->string('facebook_link')->nullable(); // Freelancer's country
+            $table->string('youtube_link')->nullable(); // Freelancer's country
+            $table->string('twitter_link')->nullable(); // Freelancer's country
+            $table->longText('description')->nullable(); // Freelancer's country
+            $table->integer('status')->default(1); // 1 Active 0 In-Active
+            $table->timestamps(); // created_at & updated_at timestamps
         });
     }
 

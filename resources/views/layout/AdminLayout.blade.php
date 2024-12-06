@@ -466,6 +466,12 @@
                             </a>
                         </li>
 
+                        <li class="nav-item "  style="margin-top: -10px;">
+                            <a class="nav-link " href="{{url('/admin/freelancer')}}">
+                                <i class=" ri-user-3-fill"></i></i> <span>Freelancer</span>
+                            </a>
+                        </li>
+
                         {{-- <li class="nav-item "  style="margin-top: -10px;">
                             <a class="nav-link " href="{{url('/admin/blog')}}">
                                 <i class=" ri-user-3-fill"></i></i> <span>Courses</span>

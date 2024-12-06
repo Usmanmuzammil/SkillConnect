@@ -15,12 +15,14 @@ class Teacher extends Authenticatable
         'name',
         'email',
         'password',
-        'desgination',
+        'category',
+        'country',
+        'year_of_experience',
+        'facebook_link',
+        'twitter_link',
+        'youtube_link',
         'description',
         'image',
-        'facebook_link',
-        'youtube_link',
-        'twitter_link',
         'status'
     ];
 }

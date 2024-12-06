@@ -9,6 +9,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DesginationController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\Faculty\BookController;
+use App\Http\Controllers\FreelancerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\QueryController;
@@ -82,10 +83,9 @@ Route::prefix('/admin')->middleware('auth:admin')->group(function() {
     Route::get('desgination',[DesginationController::class,'index']);
 
     // Banner
-    Route::controller(BannerController::class)->group(function () {
-        Route::get('/banner','index')->name('banner.index');
-        Route::post('/banner/store','store');
-        Route::delete('/banner/destroy/{id}','destroy')->name('banner.destroy');
+    Route::controller(FreelancerController::class)->group(function () {
+        Route::get('/freelancer','index')->name('freelancer.index');
+        Route::delete('/freelancer/destroy/{id}','destroy')->name('freelancer.destroy');
     });
 
     // About Controller
@@ -135,6 +135,10 @@ Route::prefix('/admin')->middleware('auth:admin')->group(function() {
 
 
 // faculty site
+Route::get('/faculty/sign-up', [LoginController::class, 'facultySignUp'])->name('faculty.signup');
+Route::post('/faculty/signup', [LoginController::class, 'submitFacultySignup'])->name('signup.submit');
+
+
 
 Route::get('/faculty/login', [LoginController::class, 'facultyIndex'])->name('faculty');
 Route::POST('/faculty/login', [LoginController::class, 'facultyLogin'])->name('faculty.login');
