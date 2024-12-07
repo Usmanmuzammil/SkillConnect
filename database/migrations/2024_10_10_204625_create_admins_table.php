@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->String('email');
             $table->string('password');
+            $table->softDeletes(); // Adds the deleted_at column
+
             $table->timestamps();
         });
     }

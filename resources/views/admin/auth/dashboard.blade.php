@@ -76,7 +76,7 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div class="flex-grow-1 overflow-hidden">
-                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Canditate</p>
+                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Courses</p>
                         </div>
                         <div class="flex-shrink-0">
                             <h5 class="text-success fs-14 mb-0">
@@ -87,7 +87,7 @@
                     <div class="d-flex align-items-end justify-content-between mt-4">
                         <div>
                             <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value"
-                                    data-target="{{ \App\Models\User::count() }}">0</span> </h4>
+                                    data-target="{{ \App\Models\course::count() }}">0</span> </h4>
                             <a href="#" class="text-decoration-underline">See details</a>
                         </div>
                         <div class="avatar-sm flex-shrink-0">
@@ -106,7 +106,7 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div class="flex-grow-1 overflow-hidden">
-                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Banner</p>
+                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Freelancer</p>
                         </div>
                         <div class="flex-shrink-0">
                             <h5 class="text-success fs-14 mb-0">
@@ -117,7 +117,7 @@
                     <div class="d-flex align-items-end justify-content-between mt-4">
                         <div>
                             <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value"
-                                    data-target="{{ \App\Models\Banner::count() }}">0</span> </h4>
+                                    data-target="{{ \App\Models\Teacher::count() }}">0</span> </h4>
                             <a href="{{url('/admin/banner')}}" class="text-decoration-underline">See details</a>
                         </div>
                         <div class="avatar-sm flex-shrink-0">
@@ -136,7 +136,7 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div class="flex-grow-1 overflow-hidden">
-                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Course</p>
+                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Instructors</p>
                         </div>
                         <div class="flex-shrink-0">
                             <h5 class="text-success fs-14 mb-0">
@@ -147,7 +147,7 @@
                     <div class="d-flex align-items-end justify-content-between mt-4">
                         <div>
                             <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value"
-                                    data-target="{{ \App\Models\Course::count() }}">0</span> </h4>
+                                    data-target="{{ \App\Models\Instructor::count() }}">0</span> </h4>
                             <a href="{{url('/admin/course')}}" class="text-decoration-underline">See details</a>
                         </div>
                         <div class="avatar-sm flex-shrink-0">
@@ -190,7 +190,7 @@
             </div><!-- end card -->
             
         </div><!-- end col -->
-        <div class="row" style="width: 100%;">
+        {{-- <div class="row" style="width: 100%;">
             <div class="col-xl-14">
                 <div class="card">
                     <div class="card-header border-0 align-items-center d-flex">
@@ -240,7 +240,7 @@
 
           
             <!-- end col -->
-        </div>
+        </div> --}}
 {{--
         <div class="col-xl-3 col-md-6">
             <!-- card -->
