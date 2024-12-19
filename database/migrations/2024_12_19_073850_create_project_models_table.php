@@ -17,9 +17,8 @@ return new class extends Migration
             $table->longText('description');
             $table->decimal('price');
             $table->string('image');
-            $table->integer('uploaded_by');
             $table->string('whatsapp_num');
-            $table->integer('status');
+            $table->integer('status')->default(0); // 0pending 1 active
             $table->timestamps();
         });
     }

@@ -13,7 +13,6 @@ class ProjectModel extends Model
     'description',
     'price',
     'image',
-    'uploaded_by',
     'whatsapp_num',
     'status',
    ];

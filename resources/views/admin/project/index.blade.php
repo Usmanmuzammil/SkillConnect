@@ -67,7 +67,6 @@
                             <th scope="6">Description</th>
                             <th scope="6">Image</th>
                             <th scope="6">Price</th>
-                            <th scope="6">Uploaded By</th>
                             <th scope="6">WhatsApp Number</th>
                             <th scope="6">Action</th>
                         </tr>
@@ -87,16 +86,16 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ url('/admin/course/store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ url('/admin/project/store') }}" method="post" enctype="multipart/form-data">
                         @csrf
-                        <label for="course_title">Course Title</label>
-                        <input type="text" name="course_title" required class="form-control" placeholder="Enter the course_title">
-                        @error('course_title')
+                        <label for="title">Title</label>
+                        <input type="text" name="title" required class="form-control" placeholder="Enter the title">
+                        @error('title')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
-                        <label for="link">Link</label>
-                        <input type="text" name="link" required class="form-control" placeholder="Enter the link">
-                        @error('link')
+                        <label for="Description">Description</label>
+                        <input type="text" name="description" required class="form-control" placeholder="Enter the description">
+                        @error('description')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                         <label for="price">Price</label>
@@ -104,21 +103,6 @@
                         @error('price')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
-                        <div>
-                            <label for="hours">Hours</label>
-                            <input type="number" name="hours" min="0" class="form-control" placeholder="Hours" required>
-                        </div>
-                        <div>
-                            <label for="minutes">Minutes</label>
-                            <input type="number" name="minutes" min="0" max="59" class="form-control" placeholder="Minutes" required>
-                        </div>
-                        @error('hours')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                        @error('minutes')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                        
                         <label for="whatsapp_num">WhatsApp Number</label>
                         <input type="number" name="whatsapp_num" required class="form-control" placeholder="0300-0000000">
                         @error('whatsapp_num')
@@ -152,7 +136,6 @@
                     { data: 'description', name: 'description' },
                     { data: 'Image', name: 'Image' },
                     { data: 'price', name: 'price' },
-                    { data: 'UploadedBy', name: 'UploadedBy' },
                     { data: 'whatsapp_num', name: 'whatsapp_num' },
                     { data: 'action', name: 'action', orderable: false, searchable: true }
                 ]

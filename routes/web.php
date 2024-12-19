@@ -134,6 +134,7 @@ Route::prefix('/admin')->middleware('auth:admin')->group(function() {
     // Project Controller
     Route::controller(ProjectController::class)->group(function () {
        Route::get('/project','index')->name('project.index'); 
+       Route::post('/project/store','store');
     });
 
 });
