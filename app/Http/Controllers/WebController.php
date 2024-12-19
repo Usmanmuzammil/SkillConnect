@@ -7,6 +7,7 @@ use App\Models\AttendenceSheet;
 use App\Models\Banner;
 use App\Models\course;
 use App\Models\Event;
+use App\Models\Instructor;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 
@@ -19,9 +20,9 @@ class WebController extends Controller
     {
         $banner = Banner::get();
         $about = About::first();
-        $teachers = Teacher::paginate(8);
+        $instructors = Instructor::get();
         $courses = course::all();  // Fetch all courses from the database
-        return view('webiste.home',compact('banner','about','teachers','courses'));
+        return view('webiste.home',compact('banner','about','instructors','courses'));
     }
 
     /**

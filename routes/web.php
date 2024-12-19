@@ -12,6 +12,7 @@ use App\Http\Controllers\Faculty\BookController;
 use App\Http\Controllers\FreelancerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\QueryController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TeacherController;
@@ -129,6 +130,11 @@ Route::prefix('/admin')->middleware('auth:admin')->group(function() {
     // Setting Routes
     Route::get('/settings', [SettingController::class, 'settings']);
     Route::post('/update_setting', [SettingController::class, 'update_settings'])->name('update_setting');
+
+    // Project Controller
+    Route::controller(ProjectController::class)->group(function () {
+       Route::get('/project','index')->name('project.index'); 
+    });
 
 });
 

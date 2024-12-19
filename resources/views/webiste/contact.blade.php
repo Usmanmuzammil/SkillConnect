@@ -33,7 +33,7 @@
                 <h1 class="mb-5">Contact For Any Query</h1>
             </div>
             <div class="row g-4">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <h5>Get In Touch</h5>
                     <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
                     <div class="d-flex align-items-center mb-3">
@@ -64,9 +64,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                </div>
-                <div class="col-lg-4 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
+              
+                <div class="col-lg-6 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
                     <form>
                         <div class="row g-3">
                             <div class="col-md-6">
